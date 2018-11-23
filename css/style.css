@@ -2,26 +2,26 @@
   font-family: "dyslex";
   font-weight: normal;
   font-style: normal;
-  src: url("");
+  src: url("https://github.com/jongallucci/CISC322-Feature-Implementation/raw/master/Dyslexie_Regular.ttf");
 }
 
 @font-face {
   font-family: "dyslex";
   font-weight: bold;
   font-style: normal;
-  src: url("");
+  src: url("https://github.com/jongallucci/CISC322-Feature-Implementation/raw/master/Dyslexie_Regular.ttf");
 }
 
 @font-face {
   font-family: "dyslex";
   font-weight: normal;
   font-style: italic;
-  src: url("");
+  src: url("https://github.com/jongallucci/CISC322-Feature-Implementation/raw/master/Dyslexie_Regular.ttf");
 }
 
 @font-face {
   font-family: "dyslex";
   font-weight: bold;
   font-style: italic;
-  src: url("");
+  src: url("https://github.com/jongallucci/CISC322-Feature-Implementation/raw/master/Dyslexie_Regular.ttf");
 }
