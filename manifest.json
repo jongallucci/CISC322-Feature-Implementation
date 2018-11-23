@@ -1,0 +1,21 @@
+{
+  "name": "Inspect Element Accessibility Features",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "Increase the accessibility features built into Chrome",
+  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "content_scripts": [{
+    "js": ["js/content.js"],
+    "css":["css/style.css"],
+    "matches": ["<all_urls>"]
+  }],
+  "options_page": "content/options.html",
+  "page_action": {
+    "default_icon": {
+      "64": "img/default_icon_64.png"
+    }
+  },
+  "icons": {
+    "64": "img/default_icon_64.png"
+  }
+}
