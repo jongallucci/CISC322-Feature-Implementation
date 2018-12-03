@@ -12,6 +12,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
     });
   }
 
+  console.log(fs);
+
   function clickCheckbox() {
     let params = {
       active: true,
@@ -28,7 +30,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
         f2: fs[2].checked,
         f3: fs[3].checked,
         f4: fs[4].checked,
-        f5: fs[5].checked
+        f5: fs[5].checked,
+        f6: fs[6].value
       });
     });
   }
