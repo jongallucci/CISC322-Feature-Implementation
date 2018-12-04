@@ -16,32 +16,31 @@ function receiver(request, sender, sendResponse) {
   dyslexic_font = request.f4;
   increase_contrast = request.f5;
   contrast_value = request.f6;
-  console.log(dyslexic_font);
+
+  console.log(request);
 
   adjustPage();
 }
 
-
 function adjustPage() {
   var all = document.getElementsByTagName("*");
 
+  if (color_blind_filter) {
+    document.body.innerHTML += '<span id="cvd_extension_svg_filter" hidden=""><svg xmlns="http://www.w3.org/2000/svg" version="1.1"><defs><filter x="0" y="0" width="99999" height="99999" id="cvd_extension_0"><feColorMatrix id="cvd_matrix_0" type="matrix" values="0.6622999999999999 -0.5325000000000001 0.8702 0 0 0.10406000000000001 0.76614 0.1296 0 0 0 0 1 0 0 0 0 0 1 0"></feColorMatrix></filter><filter x="0" y="0" width="99999" height="99999" id="cvd_extension_1"><feColorMatrix id="cvd_matrix_1" type="matrix" values="0.7393609999999999 -0.47654700000000005 0.737186 0 0 0.07926840000000002 0.8075666000000001 0.11299399999999998 0 0 0 0 1 0 0 0 0 0 1 0"></feColorMatrix></filter></defs></svg></span>';
+    document.body.style = "-webkit-filter: url(#cvd_extension_0);";
+  }
+  if (increase_contrast) {
+    document.body.style.filter = "contrast(" + contrast_value + "%)";
+  }
+  if (zoom_image_on_hover) {
+    document.styleSheets[0].insertRule('img:hover { z - index: 1000; transform: scale(2.5); }', 0);
+  }
   for (var i = 0, tot = all.length; i < tot; i++) {
     if (increase_text_size) {
       increaseTextSize(all[i]);
     }
-    if (zoom_image_on_hover) {
-      zoomOnHover(all[i]);
-    }
     if (large_cursor) {
       largeCursor(all[i]);
-    }
-    if (increase_contrast) {
-      increaseContrast(all[i]);
-      increaseContrastImages(all[i]);
-    }
-    if (color_blind_filter) {
-      colorBlindColors(all[i]);
-      colorBlindImages(all[i]);
     }
     if (dyslexic_font) {
       dyslexicFont(all[i]);
@@ -52,10 +51,6 @@ function adjustPage() {
 function increaseTextSize(elem) {
   elem.style.fontSize = "24px";
   elem.style.lineHeight = "24px";
-}
-
-function zoomOnHover(elem) {
-  //todo: make large image overlay when hovered
 }
 
 function largeCursor(elem) {
@@ -74,18 +69,6 @@ function largeCursor(elem) {
 function increaseContrast(elem) {
   elem.style.backgroundColor = "black";
   elem.style.color = "yellow";
-}
-
-function increaseContrastImages(elem) {
-  //todo: add filter to increase contrast of images
-}
-
-function colorBlindColors(elem) {
-  //todo: change colors for those w/ colourblindness (color & backgroundColor)
-}
-
-function colorBlindImages(elem) {
-  //todo: apply image filter to do same as above
 }
 
 function dyslexicFont(elem) {
